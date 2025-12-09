@@ -104,3 +104,10 @@ and I left only enough to get help.
 
 ~ McSkidy
 ```
+
+***
+
+# Day 2
+
+
+# My Solve
