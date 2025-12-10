@@ -239,7 +239,26 @@ Flag 1 : `unranked-wisdom-anthem`
 Flag 2 : `1984000`
 
 ***
+# Day 3 : Splunk Basics
 
+## My Solve
+
+**SIEM**: System Information and Event Management.
+
+Splunk is a platform for collecting, storing, and analysing machine data. It provides various tools for analysing data, including search, correlation, and visualisation. It is a powerful tool that organisations of all sizes can use to improve their IT operations and security posture.
+
+`index=main sourcetype=web_traffic  user_agent="Go-http-client/1.1" | timechart  span=1d count  | sort  by count  | reverse `
+
+Attackers ip: 
+<img width="1015" height="105" alt="image" src="https://github.com/user-attachments/assets/1383322f-9ecb-40eb-a9ec-ee291ddee606" />
+
+Firewall logs:
+<img width="1869" height="390" alt="image" src="https://github.com/user-attachments/assets/28aab712-91d1-41dd-9a6b-6106465a7273" />
+
+Answers: 
+<img width="1705" height="664" alt="image" src="https://github.com/user-attachments/assets/5c2b5a6d-4600-4c9a-81fe-7c13138d9138" />
+
+***
 # Day 8 : Prompt Injection
 
 ## My Solve
