@@ -259,6 +259,21 @@ Answers:
 <img width="1705" height="664" alt="image" src="https://github.com/user-attachments/assets/5c2b5a6d-4600-4c9a-81fe-7c13138d9138" />
 
 ***
+
+# Day 4 : AI in Security 
+
+## My Solve
+
+
+
+
+
+
+
+
+
+***
+
 # Day 8 : Prompt Injection
 
 ## My Solve
