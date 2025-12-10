@@ -244,8 +244,10 @@ Flag 2 : `1984000`
 
 ## My Solve
 
+<img width="1855" height="918" alt="image" src="https://github.com/user-attachments/assets/90e511d5-f287-4646-8a27-e80933e02dd6" />
 
 
+Flag : `THM{XMAS_IS_COMING_BACK}`
 
 ***
 
