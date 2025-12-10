@@ -1,4 +1,4 @@
-# Day 1
+# Day 1 - Linux CLI Shell Basics
 
 ## My Solve
 
@@ -107,7 +107,7 @@ and I left only enough to get help.
 
 ***
 
-# Day 2
+# Day 2 - Phishing
 
 ## My Solve
 
@@ -237,6 +237,15 @@ Flag 1 : `unranked-wisdom-anthem`
 <img width="793" height="244" alt="image" src="https://github.com/user-attachments/assets/61cb88df-0c9c-4f8b-aa07-143c749f8d09" />
 
 Flag 2 : `1984000`
+
+***
+
+# Day 8 : Prompt Injection
+
+## My Solve
+
+
+
 
 ***
 
