@@ -1,4 +1,4 @@
-# Day 1 - Linux CLI Shell Basics
+# Day 1 - Linux CLI Shell Basics 
 
 ## My Solve
 
