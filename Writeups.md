@@ -397,7 +397,7 @@ Flag 2: `THM{Evil_Stored_Egg}`
 
 > Here we use splunk again (from Day 3) for our solve.
 
-**Concepts Learned:**
+# Concepts Learned:
 
 * Apache is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open source software available for free.
 * Attacker has used Apache to spawn system processes like `cmd.exe` and `powershell.exe`
