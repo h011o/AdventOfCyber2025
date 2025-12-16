@@ -264,17 +264,6 @@ Answers:
 
 ## My Solve
 
-`IDOR` - Insecure direct object references (IDOR) are a type of access control vulnerability that arises when an application uses user-supplied input to access objects directly. The term IDOR was popularized by its appearance in the OWASP 2007 Top Ten.
-
-* The best way to stop IDOR is to make sure the server checks who is asking for the data every time. It's not enough to hide or change the ID number; the system must confirm that the logged-in user is authorized to see or change that information.
-
-<img width="1866" height="709" alt="image" src="https://github.com/user-attachments/assets/b6fb578e-62f1-4dcf-a29f-dc61eede5a9a" />
-
-* Vertical privilege escalation: This refers to privilege escalation where you gain access to more features. For example, you may be a normal user on the application, but can perform actions that should be restricted for an administrator.
-  
-* Horizontal privilege escalation: This refers to privilege escalation where you use a feature you are authorized to use, but gain access to data that you are not allowed to access. For example, you should only be able to see your accounts, not someone else's accounts.
-
-
 
 ***
 
@@ -282,6 +271,22 @@ Answers:
 
 ## My Solve
 
+`IDOR` - Insecure direct object references (IDOR) are a type of access control vulnerability that arises when an application uses user-supplied input to access objects directly. The term IDOR was popularized by its appearance in the OWASP 2007 Top Ten.
+
+* The best way to stop IDOR is to make sure the server checks who is asking for the data every time. It's not enough to hide or change the ID number; the system must confirm that the logged-in user is authorized to see or change that information.
+
+<img width="1866" height="709" alt="image" src="https://github.com/user-attachments/assets/b6fb578e-62f1-4dcf-a29f-dc61eede5a9a" />
+
+* Bonus Task: If you want to dive even deeper, use either the base64 or md5 child endpoint and try to find the id_number of the child born on 2019-04-17? To make the iteration faster, consider using something like Burp's Intruder. If you want to check your answer, click the hint on the question.
+
+Opened up burpsuite for this one and sent the `view-account` request to repeater. Child with the required birthdate was found on ID `19` 
+
+<img width="1072" height="590" alt="image" src="https://github.com/user-attachments/assets/5dc66a48-efa3-42a3-958e-144b3a01a37b" />
+
+I also learned how to craft a payload for the GET Api `/api/child/b64/Mw== ` using Intruder and base64 encoding to automate this process.
+
+
+***
 
 # Day 6 : Malware Analysis
 
