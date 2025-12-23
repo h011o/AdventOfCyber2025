@@ -1,5 +1,7 @@
 # Forensics
 
+***
+
 ## The First Strike
 
 * Provided PCAP can be opened using wireshark. 
@@ -13,6 +15,8 @@
 
 
 Flag : `csd{Elf67_snowball}`
+
+***
 
 ## Syndiware
 
@@ -28,3 +32,6 @@ Follow the traces of the intrusion, work out the Syndicate’s techniques, and r
 
 File: [syndicate_locker.zip](https://github.com/h011o/madhav_phase2/blob/main/files/syndicate_locker.zip)
 
+## Solve
+
+Provided zip-file has a memory dump along with the encryption script used. Another folder called encryption_files has all the data in its encrypted format ending with `.enc`
