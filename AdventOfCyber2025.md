@@ -408,7 +408,7 @@ Flag 1 : `THM{Evil_Bunny}`
 
 Flag 2: `THM{Evil_Stored_Egg}`
 
-**Concepts Learned:**
+## Concepts Learned:
 
 1. Reflected XSS: Attacker targets individuals by tricking them into clicking a link with malicious code.
 2. Stored XSS: Attacker stores malicious script in the server which is then loaded for every user who views the page. 
@@ -416,7 +416,7 @@ Flag 2: `THM{Evil_Stored_Egg}`
 ***
 # Day 12: Phishing
 
-# Concepts learned:
+## Concepts learned:
 
 * On Authentication-Results, SPF, DKIM, and DMARC are security checks that help confirm if an email really comes from who it says it does.
 
@@ -437,6 +437,8 @@ Flag 2: `THM{Evil_Stored_Egg}`
 ***
 
 # Day 24: Exploitation with Curl
+
+## My Solve
 
 `curl` is a command-line tool for crafting HTTP requests and viewing raw responses. It's ideal when you need precision or when GUI tools aren't available.
 
