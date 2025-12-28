@@ -436,6 +436,18 @@ Flag 2: `THM{Evil_Stored_Egg}`
 
 ***
 
+# Day 16: Registry Forensics
+
+## My Solve
+
+* On heading over to `Software` and `Uninstall` we can see that `DroneManager Updater` is the only running instance on that day.
+* C:\Users\dispatch.admin\Downloads\DroneManager_Setup.exe is the full path this app was launched from. 
+* `"C:\Program Files\DroneManager\dronehelper.exe" --background` was added by the application to maintain persistence on startup.
+
+## Concepts Learned
+The registry contains all the information that the Windows OS needs for its functioning. 
+* It is made up of several separate files, each storing information on different configuration settings. These files are known as Hives.
+
 # Day 24: Exploitation with Curl
 
 ## My Solve
