@@ -1,8 +1,10 @@
-# Forensics
+<img width="666" height="381" alt="image" src="https://github.com/user-attachments/assets/da108cc7-efdf-4bdf-b33a-7386da07a75b" /># Forensics
 
 ***
 
 ## The First Strike
+
+## My Solve:
 
 * Provided PCAP can be opened using wireshark. 
 * We can use `FTP` as a filter and go through different protocols to find multiple failed login attempts.
@@ -31,7 +33,7 @@ Good luck, Operative.
 
 https://kramazon.csd.lol/
 
-**My solve:**
+## My solve:
 
 Provided is an amazon-like website where orders can be placed. I first tried clicking around to find different endpoints and found that orders could be placed for the Advent calender. Our goal (as stated by the description) is to find a way to change the priority order. 
 
@@ -95,4 +97,71 @@ I then noticed the `santaMagic` function and realized that it used XOR encoding.
 ## Concepts Learned
 
 * Reverse engineering ciphers on CyberChef
-* Identifying and exploiting a different kind of IDOR vulnerability. 
+* Identifying and exploiting a different kind of IDOR vulnerability.
+
+***
+
+# Multifactorial
+
+>Description
+Analyze the authentication flow end-to-end. If multifactor authentication is only as strong as its weakest link, can you find the point where identity becomes a matter of belief rather than proof?
+
+https://multifactorial.csd.lol/
+
+## My Solve:
+
+We are provided with the login screen:
+
+ <img width="816" height="436" alt="image" src="https://github.com/user-attachments/assets/6ee727ab-55be-4e80-83ee-ffde62566154" />
+
+I started off by going through the source code to find this: `'You\x27re\x20really\x20lucky!\x20Here\x27s\x20my\x20hash\x20as\x20a\x20reward.\x20bf33632dd9668787878890cb4fbb54261b6b7571'`
+
+* Then I headed over to [hash identifier](https://hashes.com/en/tools/hash_identifier) to find that it was SHA1 and [decrypted](https://md5decrypt.net/en/Sha1/) it to:
+
+`bf33632dd9668787878890cb4fbb54261b6b7571 : {"Plain":"northpole123","Algo":"sha1"}`
+
+Sure enough, northpole123 was our first password. We now have a different authentication screen which asks for an OTP: 
+
+ <img width="666" height="381" alt="image" src="https://github.com/user-attachments/assets/d459eb40-e016-4b7c-ac18-588bb3a65bb5" />
+
+Going through the source code again I came across this,
+
+ ```
+ const ORACLE_KEY = "17_w0Uld_83_V3Ry_fUNnY_1f_y0U_7H0u9H7_7H15_W45_4_Fl49";
+
+      async function verifyCode() {
+        const statusEl = document.getElementById("status");
+        const code = document.getElementById("code").value.trim();
+
+        statusEl.textContent = "";
+
+        if (!code) {
+          statusEl.textContent = "Please enter a TOTP code.";
+          return;
+        }
+
+        const resp = await fetch("/api/something-you-have-verify?debug=0", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code }),
+        });
+
+        const data = await resp.json();
+        if (!resp.ok) {
+          statusEl.textContent = `Error: ${data.error || "Unknown error"}`;
+          return;
+        }
+
+        statusEl.textContent = `${data.message}\nRedirecting to Step 3...`;
+        setTimeout(() => {
+          window.location.href = "/register-passkey";
+        }, 800);
+
+```
+
+* However, I was unable to figure out how to use the `ORACLE_KEY` for this so I used the hint to find https://www.okta.com/identity-101/hmac/. 
+
+This website is about Hash-based message authentication code (HMAC) and how it works. 
+
+## Concepts Learned:
+* SHA stands for Secure hashing algorithm. I can identify SHA1 hashes by remembering that they are always 40 characters. 
