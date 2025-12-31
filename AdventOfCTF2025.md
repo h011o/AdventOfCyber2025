@@ -31,7 +31,7 @@ Good luck, Operative.
 
 https://kramazon.csd.lol/
 
-## Solve
+**My solve:**
 
 Provided is an amazon-like website where orders can be placed. I first tried clicking around to find different endpoints and found that orders could be placed for the Advent calender. Our goal (as stated by the description) is to find a way to change the priority order. 
 
